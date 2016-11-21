@@ -1,5 +1,6 @@
 package Servlets;
 
+import Model.Client;
 import Model.Order;
 import com.google.gson.Gson;
 
@@ -13,7 +14,21 @@ import java.util.ArrayList;
 
 @WebServlet("/orders")
 public class Orders extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            int carId = Integer.parseInt(req.getParameter("car_id"));
+            int clientId = Integer.parseInt(req.getParameter("client_id"));
+            int orderId = Dao.Orders.addOrder(carId, clientId);
+            if(orderId == -1){
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }else {
+                resp.getWriter().print(orderId);
+            }
+        }
+        catch (Exception e){
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
 
     }
 

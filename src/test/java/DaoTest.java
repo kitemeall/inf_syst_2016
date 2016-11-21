@@ -54,4 +54,11 @@ public class DaoTest {
         ArrayList<Service> services = Dao.Services.getServices();
         assertFalse(services.isEmpty());
     }
+
+    @Test
+    public final void testOrderInsert() {
+        int orderId = Dao.Orders.addOrder(3,2);
+        assertTrue(orderId > 0);
+        Dao.Orders.deleteOrder(orderId);
+    }
 }

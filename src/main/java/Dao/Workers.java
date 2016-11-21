@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Workers {
     public static ArrayList<Worker> getWorkers(){
 
-        String query = " Select name, phone from dbo.Clients";
+        String query = " Select id, name, speciality from dbo.Workers";
         Connection conn = null;
         ArrayList<Worker> workers = new ArrayList<Worker>();
         try{
@@ -20,7 +20,7 @@ public class Workers {
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
 
-                Worker worker = new Worker(rs.getString("name"),rs.getString("phone"));
+                Worker worker = new Worker(rs.getInt("id"), rs.getString("name"),rs.getString("speciality"));
                 workers.add(worker);
             }
         }catch (Exception e){

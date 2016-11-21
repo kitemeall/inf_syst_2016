@@ -1,8 +1,10 @@
 package Dao;
 
+import Model.Client;
 import Model.Order;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -41,5 +43,51 @@ public class Orders {
             }
         }
         return orders;
+    }
+
+    // TODO: 20.11.2016 сделать добавление заказа в базу
+    public static int addOrder(int carId, int clientId){
+        String query = "insert into dbo.Repair (car_id, client_id, start_date, done) VALUES (?, ?, ?, ?)";
+        Connection conn = null;
+        int newOrderId = -1;
+        try{
+            conn = SQLConnector.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query,  Statement.RETURN_GENERATED_KEYS);
+            java.sql.Timestamp timestamp = new java.sql.Timestamp(System.currentTimeMillis());
+            ps.setInt(1, carId);
+            ps.setInt(2, clientId);
+            ps.setTimestamp(3, timestamp);
+            ps.setBoolean(4, false);
+            ps.executeUpdate();
+
+            ResultSet generatedKeys = ps.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                newOrderId = generatedKeys.getInt(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                conn.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return newOrderId;
+    }
+
+    public static void deleteOrder(int orderId){
+        Connection conn = null;
+        try
+        {
+            conn = SQLConnector.getConnection();
+            PreparedStatement st = conn.prepareStatement("DELETE FROM dbo.Repair WHERE id = ?");
+            st.setInt(1,orderId);
+            st.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
