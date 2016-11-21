@@ -1,0 +1,65 @@
+.container{
+	max-width: 740px;
+}
+h1{
+	text-align: center;
+}
+.card{
+	background-color: #eee;
+	border-radius: 5px;
+	padding: 30px;
+	margin-top: 30px;
+	padding-bottom: 100px;
+}
+button.col-md-4{
+	float: right;
+}
+.form-group .bootstrap-select{
+	display: block;
+	width: 100% !important;
+}
+.add-service-item{
+	margin-bottom: 20px;
+}
+.add-service-item .bootstrap-select{
+	padding-left: 0;
+}
+.add-service-item .label{
+	font-size: 19px;
+	line-height: 28px;
+	height: 34px;
+	display: block;
+	float: right;
+}
+.result-price{
+	font-size: 19px;
+    line-height: 38px;
+    height: 46px;
+    display: block;
+}
+.add-worker-item{
+	margin-bottom: 20px;
+}
+.add-worker-item .label{
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 28px;
+	height: 34px;
+	display: block;
+}
+.table-opened-orders tbody tr{
+	cursor: pointer;
+}
+.table-opened-orders tbody tr:hover{
+	text-decoration: underline;
+}
+.one-order .label{
+	font-size: 16px;
+	font-weight: 100;
+	height: 30px;
+	line-height: 28px;
+}
+.info-line{
+	margin-bottom: 20px;
+	overflow: hidden;
+}
