@@ -8,8 +8,10 @@ public class Car {
     private String number;
     private String vin;
     private int modelId;
+    private int id;
 
-    public Car(String model, String number, String vin) {
+    public Car(int id, String model, String number, String vin) {
+        this.id = id;
         this.model = model;
         this.number = number;
         this.vin = vin;

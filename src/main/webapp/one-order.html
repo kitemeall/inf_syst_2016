@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>opened orders</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/css/bootstrap-select.min.css">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title" id="title"></h3>
+        </div>
+        <div class="panel-body one-order">
+          <div class="info-line">
+            <span class="label label-primary col-md-6">Клиент</span>
+            <span class="label label-default col-md-6" id="client"></span>
+          </div>
+          <div class="info-line">
+            <span class="label label-primary col-md-6">Телефон</span>
+            <span class="label label-default col-md-6" id="phone"></span>
+          </div>
+          <div class="info-line">
+            <span class="label label-primary col-md-6">VIN-номер</span>
+            <span class="label label-default col-md-6" id="vin"></span>
+          </div>
+          <h3>Услуги</h3>
+          <div class="service-list">
+
+          </div>
+          
+        </div>
+      </div>
+      <a class="btn btn-lg btn-success col-md-3 col-md-offset-9 " id="button-end" role="button">Завершить</a>
+    </div>
+  </div>
+
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/js/bootstrap-select.min.js"></script>
+  <script src="js/one_order.js"></script>
+</body>
+</html>

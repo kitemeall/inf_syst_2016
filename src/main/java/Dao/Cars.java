@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Cars {
     public static ArrayList<Car> getCars(){
 
-        String query = "SELECT number, vin, name\n" +
+        String query = "SELECT Cars.id as id, number, vin, name\n" +
                 "FROM dbo.Cars\n" +
                 "LEFT JOIN dbo.Models\n" +
                 "ON Cars.model_id = Models.id;";
@@ -20,7 +20,7 @@ public class Cars {
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
 
-                Car car = new Car(rs.getString("name"),rs.getString("number"),rs.getString("vin"));
+                Car car = new Car(rs.getInt("id"),rs.getString("name"),rs.getString("number"),rs.getString("vin"));
                 cars.add(car);
             }
         }catch (Exception e){

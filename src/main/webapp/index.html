@@ -1,25 +1,169 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/common.js"> </script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Bootstrap 101 Template</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/css/bootstrap-select.min.css">
 
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<form action="">
-    <div id="stage1">
-        <h2> Составление заказа</h2>
-        <span>Автомобиль</span>
-        <select id="car_select">
-            <option>Пункт 1</option>
-            <option>Пункт 2</option>
-        </select>
-        <span>Клиент</span>
-        <select>
-            <option>Пункт 1</option>
-            <option>Пункт 2</option>
-        </select>
+  <div class="container">
+    <div class="card choose-client">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Выбрать автомобиль</h3>
+        </div>
+        <div class="panel-body">
+          <select class="selectpicker col-md-8" data-live-search="true" id="cars-select">
+          </select> 
+          <button type="button" class="btn btn-info col-md-4 " data-toggle="modal" data-target="#addCar">Добавить новый</button>    
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Выбрать клиента</h3>
+        </div>
+        <div class="panel-body">
+          <select class="selectpicker col-md-8" data-live-search="true" id="clients-select">
+          </select> 
+          <button type="button" class="btn btn-info col-md-4 " data-toggle="modal" data-target="#addClient">Добавить новый</button>    
+        </div>
+      </div>
+      <a class="btn btn-lg btn-success col-md-3 col-md-offset-9" id="button-next" href="#" role="button">Далее</a>
+
     </div>
-</form>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="addClient" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal Add Client-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Добавить клиента</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="usr">ФИО</label>
+                <input type="text" class="form-control" id="client-name">
+              </div>
+              <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="text" class="form-control" id="client-phone">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn  btn-success" id="button-add-client">Добавить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Add Car-->
+    <div class="modal fade" id="addCar" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Добавить автомобиль</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="usr">Марка, модель</label>
+                <br>
+                <select class="selectpicker" data-live-search="true" id="models-select">
+                </select>              
+              </div>
+              <div class="form-group">
+                <label for="usr">Номер</label>
+                <input type="text" class="form-control" id="car-number">
+              </div>
+              <div class="form-group">
+                <label for="phone">VIN-номер</label>
+                <input type="text" class="form-control" id="vin-number">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="button-add-car">Добавить</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card add-service" style="display: none" >
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Добавить услуги</h3>
+        </div>
+        <div class="panel-body">
+
+          <div class="add-service-list">
+
+            <div class="add-service-item">
+              <select class="selectpicker col-md-8" data-live-search="true" id="add-service-item">
+              </select> 
+              <span class="label label-primary col-md-4" >100500р</span>
+            </div>
+
+          </div> 
+
+          <a class="btn  btn-primary col-md-3 " id="service-add-button" role="button">Добавить услугу</a>
+        </div>
+      </div>
+      <a class="btn btn-lg btn-success col-md-3 col-md-offset-9 " id="button-service-next" role="button">Далее</a>
+
+    </div>
+
+    <div class="card add-workers " style="display: none;">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Назначить работников</h3>
+        </div>
+        <div class="panel-body">
+
+          <div class="add-worker-list">
+            
+
+            
+
+            
+          </div> 
+
+
+        </div>
+      </div>
+      <a class="btn btn-lg btn-success col-md-3 col-md-offset-9" id="button-done" role="button">Готово</a>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="lib/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/bootstrap-select.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/workers.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@ package Dao;
 
 import Model.Client;
 import Model.Order;
+import Model.OrderDetails;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -45,7 +46,6 @@ public class Orders {
         return orders;
     }
 
-    // TODO: 20.11.2016 сделать добавление заказа в базу
     public static int addOrder(int carId, int clientId){
         String query = "insert into dbo.Repair (car_id, client_id, start_date, done) VALUES (?, ?, ?, ?)";
         Connection conn = null;
@@ -90,4 +90,53 @@ public class Orders {
             e.printStackTrace();
         }
     }
+
+    public static OrderDetails getOrderDetails(int id){
+
+        String query = "{call orderDetails (?)}";
+        Connection conn = null;
+      OrderDetails orderDetails= null;
+        try{
+            conn = SQLConnector.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                orderDetails = new OrderDetails(
+                        rs.getString("client_name"),
+                        rs.getString("phone"),
+                        rs.getString("vin"),
+                        rs.getString("model_name"),
+                        rs.getString("number"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                conn.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return orderDetails;
+    }
+
+    public static void endOrder(int orderId){
+        Connection conn = null;
+        try
+        {
+            conn = SQLConnector.getConnection();
+            PreparedStatement st = conn.prepareStatement("update dbo.Repair\n" +
+                    "set done = 1\n" +
+                    "where Repair.id = ?");
+            st.setInt(1,orderId);
+            st.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
 }

@@ -6,8 +6,10 @@ package Model;
 public class Service {
     private String name;
     private int price;
+    private int id;
 
-    public Service(String name, int price) {
+    public Service(int id, String name, int price) {
+        this.id = id;
         this.name = name;
         this.price = price;
     }

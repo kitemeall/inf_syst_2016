@@ -17,41 +17,29 @@
 
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Nissan silvia s15 Y794YM47</h3>
+          <h3 class="panel-title" id="title"></h3>
         </div>
         <div class="panel-body one-order">
           <div class="info-line">
             <span class="label label-primary col-md-6">Клиент</span>
-            <span class="label label-default col-md-6">Петров С.В.</span>
+            <span class="label label-default col-md-6" id="client"></span>
           </div>
           <div class="info-line">
             <span class="label label-primary col-md-6">Телефон</span>
-            <span class="label label-default col-md-6">+7 999 324 21 43</span>
+            <span class="label label-default col-md-6" id="phone"></span>
           </div>
           <div class="info-line">
             <span class="label label-primary col-md-6">VIN-номер</span>
-            <span class="label label-default col-md-6">XTA12341KY32341</span>
+            <span class="label label-default col-md-6" id="vin"></span>
           </div>
           <h3>Услуги</h3>
-          <div class="info-line">
-            <span class="label label-primary col-md-4">Замена масла</span>
-            <span class="label label-default col-md-4">Семенов К.С.</span>
-            <span class="label label-primary col-md-4">1000р</span>
+          <div class="service-list">
+
           </div>
-          <div class="info-line">
-            <span class="label label-primary col-md-4">Замена масла в кпп</span>
-            <span class="label label-default col-md-4">Сергеев А.С.</span>
-            <span class="label label-primary col-md-4">1500р</span>
-          </div>
-          <div class="info-line">
-            <span class="label label-primary col-md-4">Замена масла</span>
-            <span class="label label-default col-md-4">Семенов К.С.</span>
-            <span class="label label-primary col-md-4">1000р</span>
-          </div>
+          
         </div>
       </div>
-      <span class="label label-primary col-md-3 result-price">100500р</span>
-      <a class="btn btn-lg btn-success col-md-3 col-md-offset-6 " href="#" role="button">Завершить</a>
+      <a class="btn btn-lg btn-success col-md-3 col-md-offset-9 " id="button-end" role="button">Завершить</a>
     </div>
   </div>
 
@@ -61,7 +49,8 @@
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/js/bootstrap-select.min.js"></script>
+  <script src="js/one_order.js"></script>
 </body>
 </html>

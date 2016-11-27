@@ -18,7 +18,7 @@ public class DaoTest {
     }
     @Test
     public final void testModels() {
-        ArrayList<String> models = Dao.Models.getModels();
+        ArrayList<Model> models = Dao.Models.getModels();
         assertFalse(models.isEmpty());
     }
     @Test

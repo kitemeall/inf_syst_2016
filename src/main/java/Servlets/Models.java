@@ -1,6 +1,7 @@
 package Servlets;
 
 import Model.Car;
+import Model.Model;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class Models extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<String> models = Dao.Models.getModels();
+        ArrayList<Model> models = Dao.Models.getModels();
         String json = new Gson().toJson(models);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

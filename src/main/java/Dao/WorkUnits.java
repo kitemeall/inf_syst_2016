@@ -50,14 +50,7 @@ public class WorkUnits {
 
     public static ArrayList<WorkItem> getWorkItems( int repairId){
 
-        String query = "select Services.name as service, Workers.name as worker_name, Workers.speciality, Services.price\n" +
-                "from Repair left join workUnit\n" +
-                "on Repair.id = workUnit.repair_id\n" +
-                "left join Workers\n" +
-                "on Workers.id = workUnit.worker_id\n" +
-                "left join Services \n" +
-                "on Services.id = workUnit.service_id\n" +
-                "where Repair.id = ?";
+        String query = "{call getWorkUnits(?)}";
         Connection conn = null;
         ArrayList<WorkItem> workItems = new ArrayList<WorkItem>();
         try{
